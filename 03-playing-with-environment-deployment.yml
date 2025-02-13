@@ -4,7 +4,7 @@ trigger:
 strategy:
  matrix:
    linux:
-     operatingSystem: 'ubunutu-latest'
+     operatingSystem: 'ubuntu-latest'
    mac:
      operatingSystem: 'macOS-latest'
 
