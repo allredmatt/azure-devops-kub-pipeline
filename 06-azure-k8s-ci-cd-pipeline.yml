@@ -63,4 +63,4 @@ stages:
         kubernetesServiceConnection: 'azure-k8s'
         namespace: 'default'
         manifests: '$(System.ArtifactsDirectory)/configuration/kubernetes/deployment.yaml'
-        containers: 'allredmatt/currency-exchnage-devops:${tag}'
+        containers: 'currency-exchnage'
