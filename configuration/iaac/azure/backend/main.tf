@@ -28,5 +28,5 @@ resource "azurerm_storage_account" "storage_account" {
 
 resource "azurerm_storage_container" "storage_container" {
   name                  = "${var.environment}terraformstatestoragecontainer"
-  storage_account_name  = azurerm_storage_account.storage_account.name
+  storage_account_id  = azurerm_storage_account.storage_account.id
 }
