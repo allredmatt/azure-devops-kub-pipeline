@@ -18,7 +18,6 @@ steps:
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publicKey.secureFilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'azure-resource-manager'
     backendAzureRmSubscriptionId: '4229bd80-d823-4b56-84af-cbe7f23e5694'
@@ -29,3 +28,13 @@ steps:
     backendAzureRmContainerName: 'storageaccountmallred-container'
     backendAzureRmKey: 'kubernetes-dev.tfstate'
     allowTelemetryCollection: true
+
+- task: TerraformCLI@2
+  displayName: "Terraform apply"
+  inputs:
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
+    environmentServiceName: 'azure-resource-manager'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publicKey.secureFilePath)'
+    allowTelemetryCollection: true
+    
