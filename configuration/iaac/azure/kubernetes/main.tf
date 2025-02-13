@@ -9,7 +9,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_kubernetes_cluster" "terraform-k8s" {
-  name                = "${var.cluster_name}_${var.environment}"
+  name                = "${var.cluster_name}_${var.environment}_1"
   location            = azurerm_resource_group.resource_group.location
   resource_group_name = azurerm_resource_group.resource_group.name
   dns_prefix          = var.dns_prefix
