@@ -48,30 +48,30 @@ provider "kubernetes" {
 
 
 
- data "aws_eks_cluster" "cluster" {
-   name = "lfacademy-cluster"
- }
- data "aws_eks_cluster_auth" "cluster" {
+data "aws_eks_cluster" "cluster" {
   name = "lfacademy-cluster"
- }
+}
+data "aws_eks_cluster_auth" "cluster" {
+name = "lfacademy-cluster"
+}
 
 
 
- resource "kubernetes_cluster_role_binding" "example" {
-   metadata {
-     name = "fabric8-rbac"
-   }
-   role_ref {
-     api_group = "rbac.authorization.k8s.io"
-     kind      = "ClusterRole"
-     name      = "cluster-admin"
-   }
-   subject {
-     kind      = "ServiceAccount"
-     name      = "default"
-     namespace = "default"
-   }
- }
+resource "kubernetes_cluster_role_binding" "example" {
+  metadata {
+    name = "fabric8-rbac"
+  }
+  role_ref {
+    api_group = "rbac.authorization.k8s.io"
+    kind      = "ClusterRole"
+    name      = "cluster-admin"
+  }
+  subject {
+    kind      = "ServiceAccount"
+    name      = "default"
+    namespace = "default"
+  }
+}
 
 
 provider "aws" {
