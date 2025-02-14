@@ -14,7 +14,7 @@ steps:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/aws/kubernetes'
     backendServiceAWS: 'aws-for-terraform'
-    backendAWSBucketName: 'terraform-backend-state-emilesherrott1'
+    backendAWSBucketName: 'terraform-backend-state-mallred'
     backendAWSKey: 'kubernetes-dev.tfstate'
 
 - task: TerraformTaskV4@4
